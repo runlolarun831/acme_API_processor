@@ -23,7 +23,24 @@
 */
       // returns object where key is first letter of company name
       // value for each key is the array of those companies
-      const groupCompaniesByLetter = (companies) => companies.map(company => (company.name).charAt(0));
+      const groupCompaniesByLetter = (companies) => {
+        const compNameObj = {};
+        companies.map(company => {
+          let first = (company.name).charAt(0);
+          //console.log('first', first);
+          //console.log(company.name);
+          //console.log(compNameObj);
+          if( !(first in compNameObj)) {
+            compNameObj[first] = [company];
+          }
+          else {
+            compNameObj[first].push(company);
+          }
+        }
+        )
+        return compNameObj;
+      };
+
 
       const groupedCompaniesByLetter = groupCompaniesByLetter(companies);
       console.log(groupedCompaniesByLetter);
