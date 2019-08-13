@@ -92,7 +92,7 @@ const processOfferings = ({ companies, products, offerings}) => {
       //console.log(product.id, '=== ', offer.productId);
       return product.id === offer.productId
     });
-    console.log('this is offer ', offer,'    this is productName   ' , productName);
+    console.log('this is offer ', offer,'    this is productName   ' , productName.name);
     newOfferings.push(offProdCo);
   });
   //console.log(newOfferings);
