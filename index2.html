@@ -1,3 +1,4 @@
+<!-- scratchpad 2 -->
 <html>
   <head>
     <script src='https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.0/axios.js'></script>
@@ -70,26 +71,19 @@
 // or
 // new array? do they want me to add "company" and "product" to each offerings object?
 
-const processOfferings = (everything) => {
-   console.log(offerings[0]);
-  // const offProdCo = {};
-  // everything.offerings.forEach(offer => {
-  //   //console.log('this is offer.productId' );
-  //   //console.log(offer.productId);
-  //   console.log('this is offer.price' );
-  //   console.log(offer.price)
-  console.log(everything.products[0]);
-  const offProdCo = {};
-  everything.products.forEach(product => {
+const processOfferings = ({companies, products, offerings}) => {
+  console.log(companies[0]);
+  console.log(products[0]);
+  console.log(offerings[0]);
+  products.forEach(product => {
     console.log('this is product.name' );
     console.log(product.name);
     console.log('this is product.id' );
     console.log(product.id)
 
  })
-  //console.log(everything.offerings[price]);
+  ;
 }
-
 
 const processedOfferings = processOfferings( { companies, products, offerings});
 console.log(processedOfferings);
