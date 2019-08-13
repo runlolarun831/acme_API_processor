@@ -67,9 +67,9 @@
 
 const processOfferings = ({ companies, products, offerings}) => {
   // console.log(offerings);
-  // console.log( 'this is offerings sample');
-  // console.log(offerings[0]);
-  // console.log(offerings[0].productId);
+   //console.log( 'this is offerings sample');
+   //console.log(offerings[0]);
+   //console.log(offerings[0].productId);
   // find match w/products.id and add products.name to offerings
   // find match w/companies.id and add companies.name to offerings
 
@@ -85,25 +85,38 @@ const processOfferings = ({ companies, products, offerings}) => {
   const newOfferings = [];
 
   [...offerings].map(offer => {
-    console.log('the ', offer);
-    //offProdCo = {...offer}; //don't need to do this...overkill
     offProdCo = offer;
-    const productName = [...products].find( product => {
-      //console.log(product.id, '=== ', offer.productId);
+    offProdCo = {...offer};//i did need it!
+    const prodMatchID = [...products].find( product => {
       return product.id === offer.productId
     });
-    console.log('this is offer ', offer,'    this is productName   ' , productName.name);
+    offProdCo.product = prodMatchID.name;
+    //newOfferings.push(offProdCo); //moved this
+
+    const compMatchID = [...companies].find(company => {
+      // if (company.id === offer.companyId) {
+      //   console.log('FOUND company.id ', company.id, '  ', 'offer.companyId ', offer.companyId );
+      // }
+      return company.id === offer.companyId
+    });
+
+    offProdCo.company =compMatchID.name;
+
+    //console.log(compMatchID.name);
     newOfferings.push(offProdCo);
-  });
-  //console.log(newOfferings);
+  } );
+
+
   return newOfferings;
 
 }
 
 
 const processedOfferings = processOfferings( { companies, products, offerings});
-console.log(processedOfferings);
-console.log(processedOfferings === offerings) //check if you made new array and didn't chane offerings
+//console.log(processedOfferings);
+console.log(processedOfferings[0]);
+console.log(offerings[0]);
+console.log('check', processedOfferings === offerings) //check if you made new array and didn't change offerings
 
 
       // //example
