@@ -65,28 +65,33 @@
 
 // returns an array of offerings with each offering having a company and product
 
-// new array  is this what they want returned in array?
-//   [{price:1.00, company: company name, product name}, {price:2.00, company: company name, product name} ]
-// or
-// new array? do they want me to add "company" and "product" to each offerings object?
-
 const processOfferings = ({ companies, products, offerings}) => {
+  console.log(offerings);
   console.log( 'this is offerings sample');
   console.log(offerings[0]);
-   console.log(offerings[0].productId);
-   // find match w/products.id and add products.name to offerings
-   // find match w/companies.id and add companies.name to offerings
+  console.log(offerings[0].productId);
+  // find match w/products.id and add products.name to offerings
+  // find match w/companies.id and add companies.name to offerings
 
-   console.log( 'this is products sample');
-   console.log(products[0]);
-   console.log(products[0].name);
+  //console.log( 'this is products sample');
+  //console.log(products[0]);
+  //console.log(products[0].name);
 
-   console.log( 'this is companies sample');
-   console.log(companies[0]);
-    console.log(companies[0].name);
-  //  const offProdCo = {};
+  //console.log( 'this is companies sample');
+  //console.log(companies[0]);
+  //console.log(companies[0].name);
+  let offProdCo = {};
 
-  // everything.offerings.forEach(offer => {
+  const newOfferings = [];
+
+  [...offerings].map(offer => {
+    console.log('the ', offer);
+    offProdCo = {...offer};
+    newOfferings.push(offProdCo);
+  });
+  console.log(newOfferings);
+
+  //return newOfferings;
   //   //console.log('this is offer.productId' );
   //   //console.log(offer.productId);
   //   console.log('this is offer.price' );
@@ -106,6 +111,7 @@ const processOfferings = ({ companies, products, offerings}) => {
 
 const processedOfferings = processOfferings( { companies, products, offerings});
 console.log(processedOfferings);
+console.log(processedOfferings === offerings)
 
 
       //example
