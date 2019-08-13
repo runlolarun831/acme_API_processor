@@ -70,23 +70,36 @@
 // or
 // new array? do they want me to add "company" and "product" to each offerings object?
 
-const processOfferings = (everything) => {
-   console.log(offerings[0]);
-  // const offProdCo = {};
+const processOfferings = ({ companies, products, offerings}) => {
+  console.log( 'this is offerings sample');
+  console.log(offerings[0]);
+   console.log(offerings[0].productId);
+   // find match w/products.id and add products.name to offerings
+   // find match w/companies.id and add companies.name to offerings
+
+   console.log( 'this is products sample');
+   console.log(products[0]);
+   console.log(products[0].name);
+
+   console.log( 'this is companies sample');
+   console.log(companies[0]);
+    console.log(companies[0].name);
+  //  const offProdCo = {};
+
   // everything.offerings.forEach(offer => {
   //   //console.log('this is offer.productId' );
   //   //console.log(offer.productId);
   //   console.log('this is offer.price' );
   //   console.log(offer.price)
-  console.log(everything.products[0]);
-  const offProdCo = {};
-  everything.products.forEach(product => {
-    console.log('this is product.name' );
-    console.log(product.name);
-    console.log('this is product.id' );
-    console.log(product.id)
+  //console.log(everything.products[0]);
+  ////const offProdCo = {};
+  // /everything.products.forEach(product => {
+  //   console.log('this is product.name' );
+  //   console.log(product.name);
+  //   console.log('this is product.id' );
+  //   console.log(product.id)
 
- })
+ //})
   //console.log(everything.offerings[price]);
 }
 
