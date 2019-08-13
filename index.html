@@ -66,10 +66,10 @@
 // returns an array of offerings with each offering having a company and product
 
 const processOfferings = ({ companies, products, offerings}) => {
-  console.log(offerings);
-  console.log( 'this is offerings sample');
-  console.log(offerings[0]);
-  console.log(offerings[0].productId);
+  // console.log(offerings);
+  // console.log( 'this is offerings sample');
+  // console.log(offerings[0]);
+  // console.log(offerings[0].productId);
   // find match w/products.id and add products.name to offerings
   // find match w/companies.id and add companies.name to offerings
 
@@ -86,42 +86,34 @@ const processOfferings = ({ companies, products, offerings}) => {
 
   [...offerings].map(offer => {
     console.log('the ', offer);
-    offProdCo = {...offer};
+    //offProdCo = {...offer}; //don't need to do this...overkill
+    offProdCo = offer;
+    const productName = [...products].find( product => {
+      //console.log(product.id, '=== ', offer.productId);
+      return product.id === offer.productId
+    });
+    console.log('this is offer ', offer,'    this is productName   ' , productName);
     newOfferings.push(offProdCo);
   });
-  console.log(newOfferings);
+  //console.log(newOfferings);
+  return newOfferings;
 
-  //return newOfferings;
-  //   //console.log('this is offer.productId' );
-  //   //console.log(offer.productId);
-  //   console.log('this is offer.price' );
-  //   console.log(offer.price)
-  //console.log(everything.products[0]);
-  ////const offProdCo = {};
-  // /everything.products.forEach(product => {
-  //   console.log('this is product.name' );
-  //   console.log(product.name);
-  //   console.log('this is product.id' );
-  //   console.log(product.id)
-
- //})
-  //console.log(everything.offerings[price]);
 }
 
 
 const processedOfferings = processOfferings( { companies, products, offerings});
 console.log(processedOfferings);
-console.log(processedOfferings === offerings)
+console.log(processedOfferings === offerings) //check if you made new array and didn't chane offerings
 
 
-      //example
-      const companiesByState = (companies, state) => companies.filter(company => company.state === state);
+      // //example
+      // const companiesByState = (companies, state) => companies.filter(company => company.state === state);
 
-      //returns companiesByState
-      const companiesInTexas = companiesByState(companies, 'Texas');
-      console.log(companiesInTexas);
-      } ;
-      loadData();
+      // //returns companiesByState
+      // const companiesInTexas = companiesByState(companies, 'Texas');
+      // console.log(companiesInTexas);
+  } ;
+  loadData();
 
     </script>
   </body>
