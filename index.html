@@ -65,66 +65,34 @@
 
 // returns an array of offerings with each offering having a company and product
 
-const processOfferings = ({ companies, products, offerings}) => {
-  // console.log(offerings);
-   //console.log( 'this is offerings sample');
-   //console.log(offerings[0]);
-   //console.log(offerings[0].productId);
-  // find match w/products.id and add products.name to offerings
-  // find match w/companies.id and add companies.name to offerings
+// const processOfferings = ({ companies, products, offerings}) => {
+//     const newOfferings = [];
 
-  //console.log( 'this is products sample');
-  //console.log(products[0]);
-  //console.log(products[0].name);
+//   [...offerings].map(offer => {
+//     const offProdCo = {...offer};
+//     const prodMatchID = [...products].find( product => {
+//       return product.id === offer.productId
+//     });
+//     offProdCo.product = prodMatchID.name;
 
-  //console.log( 'this is companies sample');
-  //console.log(companies[0]);
-  //console.log(companies[0].name);
-  let offProdCo = {};
+//     const compMatchID = [...companies].find(company => {
+//       return company.id === offer.companyId
+//     });
+//     offProdCo.company =compMatchID.name;
+//     newOfferings.push(offProdCo);
+//   } );
+//   return newOfferings;
+// }
 
-  const newOfferings = [];
-
-  [...offerings].map(offer => {
-    offProdCo = offer;
-    offProdCo = {...offer};//i did need it!
-    const prodMatchID = [...products].find( product => {
-      return product.id === offer.productId
-    });
-    offProdCo.product = prodMatchID.name;
-    //newOfferings.push(offProdCo); //moved this
-
-    const compMatchID = [...companies].find(company => {
-      // if (company.id === offer.companyId) {
-      //   console.log('FOUND company.id ', company.id, '  ', 'offer.companyId ', offer.companyId );
-      // }
-      return company.id === offer.companyId
-    });
-
-    offProdCo.company =compMatchID.name;
-
-    //console.log(compMatchID.name);
-    newOfferings.push(offProdCo);
-  } );
+// const processedOfferings = processOfferings( { companies, products, offerings});
+// console.log(processedOfferings);
 
 
-  return newOfferings;
+//returns the companies that have n or more offerings
 
-}
+const threeOrMoreOfferings = companiesByNumberOfOfferings(companies, offerings, 3);
+console.log(threeOrMoreOfferings);
 
-
-const processedOfferings = processOfferings( { companies, products, offerings});
-//console.log(processedOfferings);
-console.log(processedOfferings[0]);
-console.log(offerings[0]);
-console.log('check', processedOfferings === offerings) //check if you made new array and didn't change offerings
-
-
-      // //example
-      // const companiesByState = (companies, state) => companies.filter(company => company.state === state);
-
-      // //returns companiesByState
-      // const companiesInTexas = companiesByState(companies, 'Texas');
-      // console.log(companiesInTexas);
   } ;
   loadData();
 
