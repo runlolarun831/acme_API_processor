@@ -122,13 +122,23 @@
 //last one!!!!
 
 const processProducts = ({ products, offerings }) => {
+  const newProducts = [];
+  [...products].map( product => { //i think i'm going to need{...product}
+    product = {product};
+    [...offerings].filter( offer => {
+      offer = {...offer};
+      if(product.id === offer.productId) {
+        return offer.price;
+      }
+    }).reduce( accum, currVal) => {
+      (accum + currVal)/
+    }
+
+  })
   console.log(products[0].id);
   console.log(offerings[0].productId);
   console.log(products[0].id === offerings[0].productId);
-  [...offerings].filter( offer => {
 
-  }
-  )
 }
 
 
