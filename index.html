@@ -90,6 +90,37 @@
 
 //returns the companies that have n or more offerings
 
+const companiesByNumberOfOfferings = (companies, offerings, n) => {
+  //console.log(companies);
+  //console.log( 'this is companies sample');
+  //console.log(companies[0]);
+  //console.log(companies[0].id);
+
+  //console.log(offerings);
+  //console.log( 'this is offerings sample');
+  //console.log(offerings[0]);
+  //console.log(offerings[0].productId);
+  const returnArr = [];
+  for(let i = 0; i < companies.length; i++) {
+    console.log('hey');
+    console.log(companies[i].id);
+    const collectArr = [];
+    for(let j = 0; j <offerings.length; j++) {
+      console.log(offerings[j].companyId);
+      if(companies[i].id === offerings[j].companyId) {
+        console.log(companies[i].id, ' ==== ' , offerings[j].companyId);
+        collectArr.push(offerings[j]);
+      }
+    }
+    console.log('collArr ' ,collectArr);
+     if( collectArr.length >= n) {
+       returnArr.push(companies[i]);
+     }
+  }
+  return returnArr;
+}
+
+//returns the companies that have n or more offerings
 const threeOrMoreOfferings = companiesByNumberOfOfferings(companies, offerings, 3);
 console.log(threeOrMoreOfferings);
 
