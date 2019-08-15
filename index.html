@@ -63,60 +63,60 @@
       console.log(groupedCompaniesByState);
 */
 
+/*
+//returns an array of offerings with each offering having a company and product
 
-// returns an array of offerings with each offering having a company and product
+const processOfferings = ({ companies, products, offerings}) => {
+    const newOfferings = [];
 
-// const processOfferings = ({ companies, products, offerings}) => {
-//     const newOfferings = [];
+  [...offerings].map(offer => {
+    const offProdCo = {...offer};
+    const prodMatchID = [...products].find( product => {
+      return product.id === offer.productId
+    });
+    offProdCo.product = prodMatchID.name;
 
-//   [...offerings].map(offer => {
-//     const offProdCo = {...offer};
-//     const prodMatchID = [...products].find( product => {
-//       return product.id === offer.productId
-//     });
-//     offProdCo.product = prodMatchID.name;
+    const compMatchID = [...companies].find(company => {
+      return company.id === offer.companyId
+    });
+    offProdCo.company =compMatchID.name;
+    newOfferings.push(offProdCo);
+  } );
+  return newOfferings;
+}
 
-//     const compMatchID = [...companies].find(company => {
-//       return company.id === offer.companyId
-//     });
-//     offProdCo.company =compMatchID.name;
-//     newOfferings.push(offProdCo);
-//   } );
-//   return newOfferings;
-// }
+const processedOfferings = processOfferings( { companies, products, offerings});
+console.log(processedOfferings);
+*/
+/*
+//returns the companies that have n or more offerings
+const companiesByNumberOfOfferings = (companies, offerings, n) => {
 
-// const processedOfferings = processOfferings( { companies, products, offerings});
-// console.log(processedOfferings);
+  //will transpose to => function
+  const returnArr = [];
+  for(let i = 0; i < companies.length; i++) {
+    console.log('hey');
+    console.log(companies[i].id);
+    const collectArr = [];
+    for(let j = 0; j <offerings.length; j++) {
+      console.log(offerings[j].companyId);
+      if(companies[i].id === offerings[j].companyId) {
+        console.log(companies[i].id, ' ==== ' , offerings[j].companyId);
+        collectArr.push(offerings[j]);
+      }
+    }
+    console.log('collArr ' ,collectArr);
+     if( collectArr.length >= n) {
+       returnArr.push(companies[i]);
+     }
+  }
+  return returnArr;
+}
 
-
-// //returns the companies that have n or more offerings
-
-// const companiesByNumberOfOfferings = (companies, offerings, n) => {
-
-//   //will transpose to => function
-//   const returnArr = [];
-//   for(let i = 0; i < companies.length; i++) {
-//     console.log('hey');
-//     console.log(companies[i].id);
-//     const collectArr = [];
-//     for(let j = 0; j <offerings.length; j++) {
-//       console.log(offerings[j].companyId);
-//       if(companies[i].id === offerings[j].companyId) {
-//         console.log(companies[i].id, ' ==== ' , offerings[j].companyId);
-//         collectArr.push(offerings[j]);
-//       }
-//     }
-//     console.log('collArr ' ,collectArr);
-//      if( collectArr.length >= n) {
-//        returnArr.push(companies[i]);
-//      }
-//   }
-//   return returnArr;
-// }
-
-// //returns the companies that have n or more offerings
-// const threeOrMoreOfferings = companiesByNumberOfOfferings(companies, offerings, 3);
-// console.log(threeOrMoreOfferings);
+//returns the companies that have n or more offerings
+const threeOrMoreOfferings = companiesByNumberOfOfferings(companies, offerings, 3);
+console.log(threeOrMoreOfferings);
+*/
 
 // return array of products where each product has the average price of it's offerings
 //last one!!!!
@@ -152,15 +152,7 @@ const processProducts = ({ products, offerings }) => {
     });
     return newProducts;
   };
-
-
-  console.log(products[0].id);
-  console.log(offerings[0].productId);
-  console.log(products[0].id === offerings[0].productId);
-
-
-
-
+;
 
 const processedProducts = processProducts({ products, offerings });
 console.log(processedProducts);
