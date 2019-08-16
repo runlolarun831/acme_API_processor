@@ -88,6 +88,24 @@ const processOfferings = ({ companies, products, offerings}) => {
 const processedOfferings = processOfferings( { companies, products, offerings});
 console.log(processedOfferings);
 */
+
+//returns the companies that have n or more offerings
+const companiesByNumberOfOfferings = (companies, offerings, n) => {
+
+  const returnArr = companies.map( company=> {
+    console.log('This is company.id', company.id);
+    const collectArr = offerings.filter( offer=> {
+      console.log('This is offer.companyId ', offer.companyId);
+      if(company.id === offer.companyId) {
+        return offer;
+      }
+    });
+    if (collectArr.length >= n) {
+      return collectArr;
+    }
+    } );
+    return returnArr;
+  } ;
 /*
 //returns the companies that have n or more offerings
 const companiesByNumberOfOfferings = (companies, offerings, n) => {
@@ -118,9 +136,15 @@ const threeOrMoreOfferings = companiesByNumberOfOfferings(companies, offerings, 
 console.log(threeOrMoreOfferings);
 */
 
-// return array of products where each product has the average price of it's offerings
-//last one!!!!
 
+
+//returns the companies that have n or more offerings
+const threeOrMoreOfferings = companiesByNumberOfOfferings(companies, offerings, 3);
+console.log(threeOrMoreOfferings);
+
+
+// return array of products where each product has the average price of it's offerings
+/*
 const processProducts = ({ products, offerings }) => {
   const newProducts = [];
 
@@ -150,7 +174,7 @@ const processProducts = ({ products, offerings }) => {
 
 const processedProducts = processProducts({ products, offerings });
 console.log(processedProducts);
-
+*/
   } ;
   loadData();
 
