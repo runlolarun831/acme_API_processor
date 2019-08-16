@@ -122,37 +122,31 @@ console.log(threeOrMoreOfferings);
 //last one!!!!
 
 const processProducts = ({ products, offerings }) => {
-  //const newProducts = [];
-  //create new copy products array
   const newProducts = [];
-  [...products].forEach( product => { //i think i'm going to need{...product}
-    product = {...product};
+
+  [...products].forEach( product => {
+    const eachProduct = {...product};
     const productOffers = [...offerings].filter( offer => {
-      offer = {...offer};
-      if(product.id === offer.productId) {
-        return offer.price;
+      const eachOffer = {...offer};
+      if(eachProduct.id === eachOffer.productId) {
+        return eachOffer.price;
       }
     });
-    console.log('prodOffers ', productOffers);///this works!
     const productOfferPrices = productOffers.map( foundOffer => {
       return foundOffer.price;
     })
-    console.log('productOfferPrices ', productOfferPrices);
+
     const sumOfferPrice = productOfferPrices.reduce( (accum, currVal) => {
       return accum + currVal;
     });
 
     const averOfferPrice = Math.round((sumOfferPrice/ productOfferPrices.length)*100)/100;
-    //console.log('average ', sumOfferPrice);
-    console.log('average ', averOfferPrice);
-    product.averagePrice = averOfferPrice;
-    console.log("end product", product);
-    newProducts.push(product);
 
+    eachProduct.averagePrice = averOfferPrice;
+    newProducts.push(eachProduct);
     });
     return newProducts;
   };
-;
 
 const processedProducts = processProducts({ products, offerings });
 console.log(processedProducts);
