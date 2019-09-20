@@ -20,8 +20,8 @@
 
       const productsInPriceRange = findProductsInPrice(products, { min: 1, max: 15});
       console.log(productsInPriceRange);
-*/
-/*
+
+
       // returns object where key is first letter of company name
       // value for each key is the array of those companies
       const groupCompaniesByLetter = (companies) => {
@@ -40,8 +40,8 @@
 
       const groupedCompaniesByLetter = groupCompaniesByLetter(companies);
       console.log(groupedCompaniesByLetter);
-*/
-/*
+
+
       // returns object where key is a state
       // value for each key is the array of those companies in that state
 
@@ -61,9 +61,9 @@
 
       const groupedCompaniesByState = groupCompaniesByState(companies);
       console.log(groupedCompaniesByState);
-*/
 
-/*
+
+
 //returns an array of offerings with each offering having a company and product
 
 const processOfferings = ({ companies, products, offerings}) => {
@@ -87,7 +87,7 @@ const processOfferings = ({ companies, products, offerings}) => {
 
 const processedOfferings = processOfferings( { companies, products, offerings});
 console.log(processedOfferings);
-*/
+
 
 //returns the companies that have n or more offerings
 const companiesByNumberOfOfferings = (companies, offerings, n) => {
@@ -106,7 +106,7 @@ const companiesByNumberOfOfferings = (companies, offerings, n) => {
     } );
     return returnArr;
   } ;
-/*
+
 //returns the companies that have n or more offerings
 const companiesByNumberOfOfferings = (companies, offerings, n) => {
 
@@ -134,7 +134,7 @@ const companiesByNumberOfOfferings = (companies, offerings, n) => {
 //returns the companies that have n or more offerings
 const threeOrMoreOfferings = companiesByNumberOfOfferings(companies, offerings, 3);
 console.log(threeOrMoreOfferings);
-*/
+
 
 
 
@@ -142,7 +142,7 @@ console.log(threeOrMoreOfferings);
 const threeOrMoreOfferings = companiesByNumberOfOfferings(companies, offerings, 3);
 console.log(threeOrMoreOfferings);
 
-
+*/
 // return array of products where each product has the average price of it's offerings
 /*
 const processProducts = ({ products, offerings }) => {
@@ -169,13 +169,29 @@ const processProducts = ({ products, offerings }) => {
     eachProduct.averagePrice = averOfferPrice;
     newProducts.push(eachProduct);
     });
+    console.log('newProducts', newProducts);
     return newProducts;
+
   };
 
 const processedProducts = processProducts({ products, offerings });
+console.log('hereit is');
 console.log(processedProducts);
+
 */
-  } ;
+const UnderFive = ({ products, offerings, companies })=> {
+        const productUnder = [...products].map( product => {
+          console.log('PROD', product)
+          offerings.filter(offer => {
+            return product.suggestedPrice < 5 && offer.productId === product.id;
+          })
+        } );
+        return productUnder;
+        console.log('productUnder',productUnder);
+
+  };
+  console.log(UnderFive);
+      };
   loadData();
 
     </script>
